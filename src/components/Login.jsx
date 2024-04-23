@@ -29,10 +29,11 @@ function Login() {
     
      //sign up logic $ sign in logic
      if(!isSignIn){
-      //Sign Up logic
+      //Sign Up logic s
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
       .then((userCredential) => {
         const user = userCredential.user;
+        console.log(user)
         updateProfile(user, {
           displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
         }).then(() => {
