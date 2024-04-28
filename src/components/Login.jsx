@@ -10,7 +10,6 @@ import { addUser } from "../utils/userSlice";
 function Login() {
     const [isSignIn, setIsSignIn] = useState(true);
     const [signInErrorMessage, setSignInErrorMessage] = useState(null);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const email = useRef(null); 
     const password = useRef(null); 
@@ -39,8 +38,8 @@ function Login() {
         }).then(() => {
           const {uid, email, displayName} = auth.currentUser;
           dispatch(addUser({uid: uid, email: email, displayName: displayName}))
-          navigate('/browse');
-        }).catch((error) => {
+          // navigate('/browse');
+                }).catch((error) => {
           setSignInErrorMessage(error.message)
         });
         
@@ -59,7 +58,7 @@ function Login() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        navigate('/browse');
+        // navigate('/browse');
         console.log("Sign in ", user)
       })
       .catch((error) => {
